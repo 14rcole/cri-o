@@ -3,9 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"strings"
 	"time"
 
+	cp "github.com/containers/image/copy"
 	is "github.com/containers/image/storage"
 	"github.com/containers/image/types"
 	"github.com/containers/storage"
@@ -76,4 +78,10 @@ func getSize(image storage.Image, store storage.Store) (int64, error) {
 		return -1, err
 	}
 	return imgSize, nil
+}
+
+func getCopyOptions(reportWriter io.Writer) *cp.Options {
+	return &cp.Options{
+		ReportWriter: reportWriter,
+	}
 }

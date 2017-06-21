@@ -17,6 +17,7 @@ func main() {
 		imagesCommand,
 		launchCommand,
 		rmiCommand,
+		pullCommand,
 	}
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
